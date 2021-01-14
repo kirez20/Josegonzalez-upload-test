@@ -18,13 +18,11 @@
     </aside>
     <div class="column-responsive column-80">
         <div class="users form content">
-            <?= $this->Form->create($user) ?>
+            <?= $this->Form->create($user, ['type' => 'file']); ?>
             <fieldset>
                 <legend><?= __('Edit User') ?></legend>
-                <?php
-                    echo $this->Form->control('username');
-                    echo $this->Form->control('photo');
-                ?>
+                <?php echo $this->Form->control('username'); ?>
+                <?= $this->Form->control('photo', ['type' => 'file']); ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>
             <?= $this->Form->end() ?>

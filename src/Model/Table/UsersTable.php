@@ -40,6 +40,9 @@ class UsersTable extends Table
         $this->setTable('users');
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
+        $this->addBehavior('Josegonzalez/Upload.Upload', [
+            'photo' => [],
+        ]);        
     }
 
     /**
@@ -50,6 +53,7 @@ class UsersTable extends Table
      */
     public function validationDefault(Validator $validator): Validator
     {
+        // $validator->setProvider('upload', \Josegonzalez\Upload\Validation\UploadValidation::class);
         $validator
             ->nonNegativeInteger('id')
             ->allowEmptyString('id', null, 'create');
